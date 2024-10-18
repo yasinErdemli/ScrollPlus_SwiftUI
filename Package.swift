@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "ScrollPlus_SwiftUI",
+    name: "scroll-plus-swiftui",
     platforms: [.iOS(.v17)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
