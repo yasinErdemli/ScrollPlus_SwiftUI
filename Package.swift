@@ -13,7 +13,7 @@ let package = Package(
             targets: ["ScrollPlus"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-async-algorithms.git", from: "1.0.1")
+        .package(url: "https://github.com/apple/swift-async-algorithms", from: "1.0.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
