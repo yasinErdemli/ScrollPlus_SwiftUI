@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Yasin Erdemli on 21/8/24.
 //
@@ -18,7 +18,10 @@ struct CustomGesture: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {
         DispatchQueue.main.async {
             if let superView = uiView.superview?.superview,
-               !(superView.gestureRecognizers?.contains(where: { $0.name == gestureID }) ?? false) {
+                !(superView.gestureRecognizers?.contains(where: {
+                    $0.name == gestureID
+                }) ?? false)
+            {
                 let gesture = UIPanGestureRecognizer(
                     target: context.coordinator,
                     action: #selector(context.coordinator.gestureChange))
@@ -48,7 +51,8 @@ struct CustomGesture: UIViewRepresentable {
     class PanGestureDelegate: NSObject, UIGestureRecognizerDelegate {
         func gestureRecognizer(
             _ gestureRecognizer: UIGestureRecognizer,
-            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+            shouldRecognizeSimultaneouslyWith otherGestureRecognizer:
+                UIGestureRecognizer
         ) -> Bool { true }
     }
 }

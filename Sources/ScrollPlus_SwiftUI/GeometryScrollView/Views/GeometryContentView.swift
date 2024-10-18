@@ -43,13 +43,15 @@ struct GeometryContentView<Content: View>: View {
                     .frame(height: 200)
             }
         }
+        .padding(.horizontal)
     } header: { opacity in
         HStack {
             Text("Hello")
             Spacer()
             Image(systemName: "xmark")
         }
-        .padding(.horizontal)
+        .font(.largeTitle)
+        .padding()
         .background(.red.opacity(opacity))
     }
 }

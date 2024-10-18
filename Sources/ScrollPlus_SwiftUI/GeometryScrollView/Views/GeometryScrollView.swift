@@ -12,7 +12,10 @@ public struct GeometryScrollView<Content: View, Header: View>: View {
     private let content: Content
     private let header: ((CGFloat) -> Header)?
 
-    public init(@ViewBuilder content: () -> Content, @ViewBuilder header: @escaping (CGFloat) -> Header) {
+    public init(
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder header: @escaping (CGFloat) -> Header
+    ) {
         self.content = content()
         self.header = header
     }
@@ -25,8 +28,10 @@ public struct GeometryScrollView<Content: View, Header: View>: View {
                 GeometryContentView(
                     content: content,
                     height: height,
-                    scrollValueChanged: viewModel.scrollValueChanged) {
-                    viewModel.contentScrolled(oldValue: $0, newValue: $1, safeTop: safeTop)
+                    scrollValueChanged: viewModel.scrollValueChanged
+                ) {
+                    viewModel.contentScrolled(
+                        oldValue: $0, newValue: $1, safeTop: safeTop)
                 }
             }
             .coordinateSpace(.scrollView)
@@ -36,13 +41,18 @@ public struct GeometryScrollView<Content: View, Header: View>: View {
                 } headerHeightCalculator: { height in
                     viewModel.calculateHeaderHeight(height + safeTop)
                 }
-                    .offset(y: -viewModel.headerOffset)
+                .offset(y: -viewModel.headerOffset)
             }
         }
         .background {
             Color.clear
-                .preference(key: GeometryScrollOffsetPreferenceKey.self, value: viewModel.headerOffset)
-                .preference(key: GeometryScrollOpacityPreferenceKey.self, value: viewModel.opacity)
+                .preference(
+                    key: GeometryScrollOffsetPreferenceKey.self,
+                    value: viewModel.headerOffset
+                )
+                .preference(
+                    key: GeometryScrollOpacityPreferenceKey.self,
+                    value: viewModel.opacity)
         }
         .task {
             await viewModel.bindToDetector()
@@ -65,13 +75,15 @@ extension GeometryScrollView where Header == Never {
                     .frame(height: 200)
             }
         }
+        .padding(.horizontal)
     } header: { opacity in
         HStack {
             Text("Hello")
             Spacer()
             Image(systemName: "xmark")
         }
-        .padding(.horizontal)
+        .font(.largeTitle)
+        .padding()
         .background(.red.opacity(opacity))
     }
 }

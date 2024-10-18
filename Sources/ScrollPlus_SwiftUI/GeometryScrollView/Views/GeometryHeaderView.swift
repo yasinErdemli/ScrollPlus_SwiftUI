@@ -14,13 +14,12 @@ struct GeometryHeaderView<Header: View>: View {
         header()
             .background {
                 GeometryReader { proxy in
-                    let height = proxy.safeAreaInsets.top + proxy.frame(in: .global).height
+                    let height =
+                        proxy.safeAreaInsets.top
+                        + proxy.frame(in: .global).height
                     Color.clear
-                        .task {
+                        .task(id: height) {
                             headerHeightCalculator(height)
-                        }
-                        .onChange(of: height) {
-                            headerHeightCalculator($1)
                         }
                 }
             }
@@ -35,13 +34,15 @@ struct GeometryHeaderView<Header: View>: View {
                     .frame(height: 200)
             }
         }
+        .padding(.horizontal)
     } header: { opacity in
         HStack {
             Text("Hello")
             Spacer()
             Image(systemName: "xmark")
         }
-        .padding(.horizontal)
+        .font(.largeTitle)
+        .padding()
         .background(.red.opacity(opacity))
     }
 }
