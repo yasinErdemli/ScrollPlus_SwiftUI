@@ -19,6 +19,9 @@ A SwiftUI library that provides two enhanced `ScrollView` components:
 - Swift 6.0+
 - SwiftUI framework
 
+
+
+
 ## Installation
 
 ### Swift Package Manager
@@ -30,6 +33,8 @@ A SwiftUI library that provides two enhanced `ScrollView` components:
 ## Usage
 
 ### 1. `VisibilityStateScrollView`
+
+https://github.com/user-attachments/assets/07c48d77-a675-46a0-b7d0-07df24a324e0
 
 `VisibilityStateScrollView` changes the visibility of views based on how fast the user scrolls. Set thresholds for hiding and showing the content.
 
@@ -58,6 +63,10 @@ struct ContentView: View {
   - hideVelocity: Velocity threshold for hiding content.
   - showVelocity: Velocity threshold for showing content.
 ### 2. `GeometryScrollView`
+
+https://github.com/user-attachments/assets/59933a1b-054a-4b8c-b6e0-83b5c509d251
+
+
 `GeometryScrollView` adjusts the opacity and offset of the header based on the scroll position. It can be used with a header or without, relying on PreferenceKeys to share values with other views.
 *With a Header:*
 ```swift
