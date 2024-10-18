@@ -27,7 +27,7 @@ A SwiftUI library that provides two enhanced `ScrollView` components:
 ### Swift Package Manager
 
 1. In Xcode, select **File > Add Packages**.
-2. Enter the GitHub repository URL: `https://github.com/yasinErdemli/ScrollPlus_SwiftUI.git`.
+2. Enter the GitHub repository URL: `https://github.com/yasinErdemli/scroll-plus-swiftui`.
 3. Choose the library and click **Add Package**.
 
 ## Usage
